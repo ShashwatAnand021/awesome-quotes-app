@@ -72,7 +72,7 @@ app.post('/subscribe', async (req, res) => {
         );
 
         // Sending verification email
-        const verifyLink = `http://localhost:3000/verify?token=${token}`;
+        const verifyLink = `http://awesome-quotes-app-2.onrender.com/verify?token=${token}`;
 
         const mailOptions = {
             from: process.env.EMAIL_USER,
