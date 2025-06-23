@@ -22,23 +22,7 @@ app.use(express.urlencoded({ extended: true }));
 //   "Push yourself, because no one else is going to do it for you.",
 //   "Hard work beats talent when talent doesn't work hard."
 // ];
-// 🔧 Temporary route to initialize the database table
-app.get('/init-db', async (req, res) => {
-  try {
-    await pool.query(`
-      CREATE TABLE IF NOT EXISTS subscribers (
-        id SERIAL PRIMARY KEY,
-        email TEXT NOT NULL UNIQUE,
-        is_confirmed BOOLEAN DEFAULT FALSE,
-        confirmation_token TEXT
-      )
-    `);
-    res.send('✅ Table "subscribers" created or already exists.');
-  } catch (err) {
-    console.error('Error creating table:', err);
-    res.status(500).send('❌ Failed to create table.');
-  }
-});
+
 
 //fxn to generate random quotes from quotes.json
 function getRandomUnreadQuote() {
