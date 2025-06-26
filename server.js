@@ -137,7 +137,7 @@ function sendQuoteEmail(to, quote) {
 }
 
 
-cron.schedule('0 7 * * *', async () => {
+cron.schedule('* * * * *', async () => {
     try {
         const { rows: subscribers } = await pool.query(
             'SELECT email FROM subscribers WHERE is_confirmed = TRUE'
